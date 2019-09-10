@@ -16,10 +16,14 @@ export default class Todos extends Component {
     this.setState({todos: res.data})
   }
 
+  addToDo = (todo) => {
+    this.setState({todos: [...this.state.todos, todo]})
+  }
+
   render () {
     return (
       <div id='todos'>
-        <CreateTodo />
+        <CreateTodo addToDo={this.addToDo} />
         {
           this.state.todos.map(todo => <Todo todo={todo} key={todo.id} />)
         }
