@@ -13,9 +13,16 @@ export default class SingleTodo extends Component {
   }
 
   async componentDidMount () {
+    // this.props.match.params.todoId is coming from backend?
     const todoId = this.props.match.params.todoId
     const res = await axios.get(`/api/todos/${todoId}`)
     this.setState({todo: res.data})
+  }
+
+  updateTodo = (updatedTodo) => {
+    this.setState({
+      todo: updatedTodo
+    })
   }
 
   render () {
@@ -24,7 +31,10 @@ export default class SingleTodo extends Component {
     return (
       <div id='single-todo'>
         <Todo todo={todo} />
-        <UpdateTodo />
+        <UpdateTodo
+          todoId={todo.id}
+          updatedTodo={this.updateTodo}
+        />
         <Link to='/'>Back</Link>
       </div>
     )
