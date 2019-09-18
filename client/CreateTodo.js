@@ -15,6 +15,16 @@ export default class CreateTodo extends Component {
 
   handleChange = (event) => {
     this.setState({
+      /*
+        any name properties (from form) will be placed
+        in the below array. Each element/name
+        in the array will have a value that is the user's
+        current input
+
+        This way, we don't have to create TWO handleChange
+        methods (one for just 'taskName' and the other
+        just for 'assignee')
+      */
       [event.target.name]: event.target.value
     })
   }
@@ -41,7 +51,7 @@ handleSubmit = async (event) => {
   }
 
   render () {
-    const { taskName, assignee } = this.state
+    // const { taskName, assignee } = this.state
     return (
       <TodoForm
         handleChange={this.handleChange}
