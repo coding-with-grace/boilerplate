@@ -61,13 +61,18 @@ handleSubmit = async (event) => {
   }
 
   render () {
-    // const { taskName, assignee } = this.state
+    const { taskName, assignee } = this.state
     return (
       <TodoForm
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
-        taskName={this.state.taskName}
-        assignee={this.state.assignee}
+        /*
+          don't have to do this.state.taskName
+          or this.state.assignee because of above object
+          destructuring from above (before the return statement)
+        */
+        taskName={taskName}
+        assignee={assignee}
       />
     )
   }
