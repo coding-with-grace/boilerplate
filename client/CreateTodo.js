@@ -30,6 +30,11 @@ export default class CreateTodo extends Component {
   }
 
 handleSubmit = async (event) => {
+    /*
+      prevent form from submitting and refreshing
+      upon hitting the return/enter key
+    */
+
     event.preventDefault()
     try {
       /*
@@ -43,8 +48,13 @@ handleSubmit = async (event) => {
         ^ the above keys in this.state are the row names in database
       */
       const res = await axios.post('/api/todos', this.state)
+      /*
+        below, we're using the addToDo method from the
+        <Todos /> component. This way, we're changing the
+        state of array of todo items WITHOUT refreshing the page
+      */
       this.props.addToDo(res.data)
-      this.setState(initialState)
+      this.setState(initialState) // reset the form fields after submission
     } catch (err) {
       console.log(err)
     }
