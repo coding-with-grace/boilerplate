@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // object destructring (so no need to access props via props.todo and props.removeToDo)
-const Todo = ({ todo, removeToDo }) => {
+const Todo = ({ todo, removeToDo}) => {
   const todoId = todo.id
 
   return (
@@ -19,7 +19,7 @@ const Todo = ({ todo, removeToDo }) => {
         Otherwise, button won't show up (which is when this Todo component is shown in SingleTodo.js)
         */}
         {
-          removeToDo && <button onClick={() => props.removeToDo(todoId)} className='remove'>Remove</button>
+          removeToDo && <button onClick={() => removeToDo(todoId)} className='remove'>Remove</button>
         }
       </div>
     </div>
