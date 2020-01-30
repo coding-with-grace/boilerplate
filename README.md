@@ -1,4 +1,8 @@
-# Todos
+# Boilerplate
+Boilerplate for full-stack application. Includes:
+* Express
+* Sequelize
+* React
 
 ## Setup
 
